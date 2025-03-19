@@ -80,7 +80,7 @@ The system implements a dual-layer approach to voice synthesis:
 
 ### Development Note
 
-The virtual environment directory (`venv/`) is not included in the repository and should be added to your `.gitignore` file. Each developer should create their own virtual environment following the setup steps above.
+The virtual environment directory (`venv/`) is not included in the repository and should be added to your `.gitignore` file. Each user should create their own virtual environment following the setup steps above.
 
 ## 💻 System Requirements
 
@@ -328,9 +328,9 @@ Recommended security enhancements:
 4. Implement HTTPS to protect data in transit
 5. Add clear user consent mechanisms before processing voice data
 
-## 📄 License
+## 📄 License (To do)
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the LICENSE file for details. 
 
 ## 🔗 Contact
 
