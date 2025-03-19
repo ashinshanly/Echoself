@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voice Clone Studio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1><i class="fas fa-microphone-alt"></i> Voice Clone Studio</h1>
+      <p>Record your voice and let AI mimic it to read any text</p>
+    </header>
+    <main>
+      <!-- Tab navigation -->
+      <div class="tabs">
+        <button id="learnTab" class="active"><i class="fas fa-microphone"></i> Learn Your Voice</button>
+        <button id="synthesizeTab"><i class="fas fa-comment-alt"></i> Text to Speech</button>
+      </div>
+      
+      <!-- Learn Your Voice Content -->
+      <section id="learnSection">
+        <h2>Record Your Voice</h2>
+        <p class="section-desc">Please read the text below aloud for 10-15 seconds. The more natural your speaking voice is, the better the results!</p>
+        
+        <div class="sample-text">
+          <p>I'm recording my voice to create a digital clone. This technology lets me convert any text to speech that sounds just like me. The more I speak, the better the system learns the unique characteristics of my voice.</p>
+        </div>
+        
+        <div class="recorder">
+          <div class="recorder-controls">
+            <button id="recordButton"><i class="fas fa-microphone"></i> Record</button>
+            <button id="stopButton" disabled><i class="fas fa-stop"></i> Stop</button>
+          </div>
+          <p id="recordStatus">Press "Record" to start.</p>
+          <canvas id="visualizer" class="visualizer"></canvas>
+        </div>
+      </section>
+      
+      <!-- Mimic Voice Content -->
+      <section id="synthesizeSection" class="hidden">
+        <h2>Text to Speech with Your Voice</h2>
+        <p class="section-desc">Enter any text below and have it read aloud in your voice!</p>
+        
+        <div class="voice-selector">
+          <label for="voiceSelector">Select Voice:</label>
+          <select id="voiceSelector">
+            <option value="">Default Voice</option>
+          </select>
+        </div>
+        
+        <textarea id="synthesisText" placeholder="Enter text to synthesize...
+Example: Hello, this is my cloned voice speaking. Isn't technology amazing?"></textarea>
+        
+        <button id="synthesizeButton"><i class="fas fa-play"></i> Speak</button>
+        
+        <div id="audioOutput">
+          <p>Your synthesized audio:</p>
+          <audio id="synthAudio" controls></audio>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>Voice Clone Studio &copy; 2023 | Powered by AI</p>
+    </footer>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>

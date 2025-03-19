@@ -1,0 +1,438 @@
+/* Modern styles for Voice Clone Studio */
+:root {
+  --primary-color: #4F46E5;
+  --secondary-color: #6366F1;
+  --accent-color: #818CF8;
+  --light-color: #F3F4F6;
+  --dark-color: #1F2937;
+  --success-color: #10B981;
+  --danger-color: #EF4444;
+  --warning-color: #F59E0B;
+  --max-width: 1000px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--dark-color);
+  background: #f9fafb;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  color: #6b7280;
+}
+
+/* Tab Navigation */
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.tabs button {
+  background: none;
+  border: none;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #6b7280;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.tabs button:hover {
+  color: var(--primary-color);
+}
+
+.tabs button.active {
+  color: var(--primary-color);
+}
+
+.tabs button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+}
+
+/* Section Styling */
+section {
+  padding: 2rem;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+  margin-bottom: 1.5rem;
+  color: var(--dark-color);
+}
+
+.section-desc {
+  margin-bottom: 1.5rem;
+  color: #4b5563;
+}
+
+.sample-text {
+  padding: 1rem;
+  background-color: var(--light-color);
+  border-radius: 0.375rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  color: #4b5563;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Recorder */
+.recorder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.recorder-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+button#recordButton {
+  background-color: var(--danger-color);
+}
+
+button#stopButton {
+  background-color: var(--dark-color);
+}
+
+#recordStatus {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.5rem;
+}
+
+/* Voice Selector */
+.voice-selector {
+  margin-bottom: 1.5rem;
+}
+
+.voice-selector label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--dark-color);
+}
+
+select#voiceSelector {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  background-color: white;
+  font-size: 1rem;
+  color: var(--dark-color);
+  cursor: pointer;
+}
+
+select#voiceSelector:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+}
+
+/* Voice Adaptation Toggle and Status */
+.adaptation-toggle {
+  display: flex;
+  align-items: center;
+  margin-top: 0.75rem;
+  gap: 0.5rem;
+}
+
+.adaptation-toggle.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+  background-color: var(--primary-color);
+}
+
+input:focus + .toggle-slider {
+  box-shadow: 0 0 1px var(--primary-color);
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(16px);
+}
+
+.adaptation-status {
+  margin: 0.5rem 0;
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.adaptation-status.applied {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--success-color);
+}
+
+.adaptation-status.not-applied {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: var(--warning-color);
+}
+
+.adaptation-status.error {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--danger-color);
+}
+
+.status-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.adaptation-status.applied .status-icon {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.adaptation-status.not-applied .status-icon {
+  background-color: var(--warning-color);
+  color: white;
+}
+
+.adaptation-status.error .status-icon {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.adaptation-error {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.adaptation-solution,
+.error-solution {
+  font-size: 0.8125rem;
+  margin-top: 0.25rem;
+  opacity: 0.9;
+}
+
+/* Voice Processing Errors */
+.voice-processing-error {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--danger-color);
+  font-size: 0.875rem;
+}
+
+.error-title {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.dependency-error {
+  border-left: 3px solid var(--danger-color);
+}
+
+/* Synthesize Section */
+#synthesizeSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  resize: vertical;
+  font-family: inherit;
+}
+
+#audioOutput {
+  margin-top: 1rem;
+}
+
+#audioOutput p {
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+audio {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+/* Recording Visualization */
+.visualizer {
+  height: 60px;
+  width: 100%;
+  margin-top: 1rem;
+  background-color: var(--light-color);
+  border-radius: 0.375rem;
+}
+
+/* Animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.recording {
+  animation: pulse 1.5s infinite;
+}
+
+/* Status Messages */
+.status-message {
+  padding: 0.75rem;
+  margin: 1rem 0;
+  border-radius: 0.375rem;
+  text-align: center;
+}
+
+.status-success {
+  background-color: #ECFDF5;
+  color: var(--success-color);
+  border: 1px solid #A7F3D0;
+}
+
+.status-error {
+  background-color: #FEF2F2;
+  color: var(--danger-color);
+  border: 1px solid #FECACA;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem 0;
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .tabs button {
+    padding: 0.75rem 1rem;
+  }
+  
+  section {
+    padding: 1.5rem;
+  }
+}

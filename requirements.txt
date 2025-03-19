@@ -1,0 +1,19 @@
+# Core dependencies
+flask==2.0.1
+werkzeug==2.0.1
+python-dotenv==0.19.2
+
+# AI Voice Cloning with Bark
+suno-bark>=0.0.1
+scipy>=1.10.0
+numpy==1.23.5
+soundfile>=0.12.1
+torch>=2.0.0
+transformers>=4.25.1
+
+# Voice processing
+resemblyzer>=0.1.0
+librosa>=0.8.0
+praat-parselmouth>=0.4.3
+pydub>=0.25.1
+resampy>=0.4.2 
